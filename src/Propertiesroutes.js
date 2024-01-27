@@ -12,6 +12,8 @@ import PropertyOverview from "views/admin/marketplace/PropertyOverview";
 import Chat from "Chat/Chat";
 import { Task_Details } from "views/admin/Tasks/components/task-details";
 
+import Stats from "views/admin/transaction/Stats";
+
 import { EmailComponent } from "views/admin/marketplace/Email/CreateEmail";
 
 
@@ -99,6 +101,21 @@ const PropertiesRoutes = [
     icon: <BsBuilding className="h-6 w-6" />,
     component: <Task_Details />,
     secondary: true,
-  }
+  },
+  {
+    name: "Stats",
+    layout: "/admin",
+    path: "stats",
+    icon: <BsBuilding className="h-6 w-6" />,
+    component: <Stats />,
+    secondary: true,
+  },
+  {
+    name: "Create Email",
+    layout: "/admin",
+    path: "email",
+    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
+    component: <EmailComponent />,
+  },
 ];
 export default PropertiesRoutes;

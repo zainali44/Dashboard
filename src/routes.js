@@ -8,6 +8,10 @@ import Properties from "views/admin/marketplace/Properties/New_Property";
 
 import { EmailComponent } from "views/admin/marketplace/Email/CreateEmail";
 
+import Transaction from "views/admin/transaction/index";
+
+import Prospect from "views/admin/prospect/prospect";
+
 import { Opentask } from "views/admin/Tasks/components/opentasks";
 
 import Emailpage from "views/admin/marketplace/Email/Emailpage";
@@ -15,6 +19,8 @@ import Emailpage from "views/admin/marketplace/Email/Emailpage";
 import Document from "documents/document";
 
 import Notification from "Notifications/Notification";
+
+import Overview from "views/admin/default/overvview/overview";
 
 import Chat from "Chat/Chat";
 // Icon Imports
@@ -103,6 +109,27 @@ const routes = [
     path: "reports",
     icon: <ReportGmailerrorred className="h-4 w-4" />,
    
-  }
+  },
+  {
+    name: "Transaction",
+    layout: "/admin",
+    path: "transaction",
+    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
+    component: <Transaction />,
+  },
+  {
+    name: "prospects",
+    layout: "/admin",
+    path: "prospects",
+    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
+    component: <Prospect />,
+  },
+  {
+    name: "Overview",
+    layout: "/admin",
+    path: "overview",
+    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
+    component: <Overview />,
+  },
 ];
 export default routes;

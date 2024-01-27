@@ -9,12 +9,15 @@ import { MdBarChart, MdDashboard } from "react-icons/md";
 import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
 
 import Widget from "components/widget/Widget";
+import { CarouselCustomNavigation } from "views/admin/default/components/carasoul";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
-import DailyTraffic from "views/admin/default/components/DailyTraffic";
+import Conversation from "views/admin/default/components/Conversation";
 import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/tableDataCheck.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
+import { CurrencyDollarIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { CurrencyExchange, TaskAlt, TimelapseOutlined } from "@mui/icons-material";
 
 const Dashboard = () => {
   return (
@@ -24,33 +27,33 @@ const Dashboard = () => {
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
-          title={"Earnings"}
-          subtitle={"$340.5"}
+          title={"Offers"}
+          subtitle={"$34,000"}
         />
         <Widget
-          icon={<IoDocuments className="h-6 w-6" />}
-          title={"Spend this month"}
-          subtitle={"$642.39"}
+          icon={<TimelapseOutlined className="h-6 w-6" />}
+          title={"On Auctions"}
+          subtitle={"$60,000"}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Sales"}
-          subtitle={"$574.34"}
+          icon={<CurrencyExchange className="h-7 w-7" />}
+          title={"Investments"}
+          subtitle={"$45,000"}
         />
         <Widget
-          icon={<MdDashboard className="h-6 w-6" />}
+          icon={<CurrencyDollarIcon className="h-6 w-6" />}
           title={"Active Deals"}
-          subtitle={"$1,000"}
+          subtitle={"$111,000"}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"New Tasks"}
+          icon={<TaskAlt className="h-7 w-7" />}
+          title={"Tasks"}
           subtitle={"145"}
         />
         <Widget
-          icon={<IoMdHome className="h-6 w-6" />}
-          title={"Active Portfolio"}
-          subtitle={"$2433"}
+          icon={<UserCircleIcon className="h-6 w-6" />}
+          title={"Investors"}
+          subtitle={"45"}
         />
       </div>
 
@@ -66,25 +69,20 @@ const Dashboard = () => {
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
         {/* Check Table */}
         <div>
-          <CheckTable
-            columnsData={columnsDataCheck}
-            tableData={tableDataCheck}
-          />
+          < CarouselCustomNavigation />
         </div>
+        <Conversation />
 
         {/* Traffic chart & Pie Chart */}
 
-        <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
-          <DailyTraffic />
-          <PieChartCard />
-        </div>
+
 
         {/* Complex Table , Task & Calendar */}
 
-        <ComplexTable
-          columnsData={columnsDataComplex}
-          tableData={tableDataComplex}
-        />
+        <CheckTable
+            columnsData={columnsDataCheck}
+            tableData={tableDataCheck}
+          />
 
         {/* Task chart & Calendar */}
 
