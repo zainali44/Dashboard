@@ -32,8 +32,8 @@ function CardMenu({ PropertyID, ...props }) {
         const storage = getStorage(app);
         try {
             await deleteDoc(doc(db, "properties", PropertyID));
-            console.log("Document successfully deleted!");
-            navigate("/admin/marketplace");
+            alert("Property Deleted Successfully");
+            window.location.reload();
         } catch (error) {
             console.error("Error removing document: ", error);
         }

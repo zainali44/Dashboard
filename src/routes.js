@@ -34,9 +34,10 @@ import {
 } from "react-icons/md";
 import { BsBuilding } from "react-icons/bs";
 import { FaHouseUser } from "react-icons/fa";
-import { ChatBubble, NotificationAdd, ReportGmailerrorred } from "@mui/icons-material";
-import { ChatBubbleBottomCenterIcon, DocumentArrowDownIcon } from "@heroicons/react/24/solid";
+import { ChatBubble, NotificationAdd, ReportGmailerrorred, Task } from "@mui/icons-material";
+import { ChatBubbleBottomCenterIcon, CurrencyDollarIcon, DocumentArrowDownIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import NotificationIcon from "components/icons/NotificationIcon";
+import { Bars2Icon } from "@heroicons/react/24/outline";
 
 const routes = [
   {
@@ -45,6 +46,13 @@ const routes = [
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
+  },
+  {
+    name: "Statistics for Deals",
+    layout: "/admin",
+    path: "Statistics",
+    icon: <Bars2Icon className="h-5 w-5" />,
+    component: <Overview />,
   },
   {
     name: "Properties",
@@ -62,24 +70,34 @@ const routes = [
     component: <MembersTable />,
   },
   {
+    name: "prospects",
+    layout: "/admin",
+    path: "prospects",
+    icon: <UserCircleIcon className="h-5 w-5" />,
+    component: <Prospect />,
+  },
+  {
+    name: "Transaction",
+    layout: "/admin",
+    path: "transaction",
+    icon: <CurrencyDollarIcon className="h-5 w-5" />,
+    component: <Transaction />,
+  },
+ 
+  
+  {
     name: "Conversation",
     layout: "/admin",
     path: "chat",
     icon: <ChatBubbleBottomCenterIcon className="h-5 w-5" />,
     component: <Chat />,
   },
-  {
-    name: "Create Email",
-    layout: "/admin",
-    path: "email",
-    icon: <MdEmail className="h-5 w-5" />,
-    component: <EmailComponent />,
-  },
+ 
   {
     name: "Your Tasks",
     layout: "/admin",
     path: "tasks",
-    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
+    icon: <Task className="h-4 w-4" />,
     component: <Opentask />,
   },
   {
@@ -110,26 +128,6 @@ const routes = [
     icon: <ReportGmailerrorred className="h-4 w-4" />,
    
   },
-  {
-    name: "Transaction",
-    layout: "/admin",
-    path: "transaction",
-    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
-    component: <Transaction />,
-  },
-  {
-    name: "prospects",
-    layout: "/admin",
-    path: "prospects",
-    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
-    component: <Prospect />,
-  },
-  {
-    name: "Overview",
-    layout: "/admin",
-    path: "overview",
-    icon: <MdOutlineShoppingCart className="h-5 w-5" />,
-    component: <Overview />,
-  },
+  
 ];
 export default routes;

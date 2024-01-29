@@ -4,13 +4,14 @@ import {
   UsersIcon,
   ChartBarIcon,
 } from "@heroicons/react/24/solid";
+import { CallToAction, PendingActions, Task, TaskAltOutlined, TaskSharp } from "@mui/icons-material";
 
-export const statisticsCardsData = [
+export const TaskDetails = [
   {
-    color: "gray",
-    icon: BanknotesIcon,
-    title: "Total Investment",
-    value: "$53k",
+    color: "green",
+    icon: Task,
+    title: "Total Tasks",
+    value: "18",
     footer: {
       color: "text-green-500",
       value: "+55%",
@@ -19,8 +20,8 @@ export const statisticsCardsData = [
   },
   {
     color: "gray",
-    icon: UsersIcon,
-    title: "Total Investors",
+    icon: TaskAltOutlined,
+    title: "Completed Tasks",
     value: "2,300",
     footer: {
       color: "text-green-500",
@@ -30,8 +31,8 @@ export const statisticsCardsData = [
   },
   {
     color: "gray",
-    icon: UserPlusIcon,
-    title: "New Clients",
+    icon: PendingActions,
+    title: "Pending Tasks",
     value: "3,462",
     footer: {
       color: "text-red-500",
@@ -41,9 +42,9 @@ export const statisticsCardsData = [
   },
   {
     color: "gray",
-    icon: ChartBarIcon,
-    title: "Total Revenue",
-    value: "$103,430",
+    icon: CallToAction,
+    title: "In Progress",
+    value: "103",
     footer: {
       color: "text-green-500",
       value: "+5%",
@@ -52,4 +53,4 @@ export const statisticsCardsData = [
   },
 ];
 
-export default statisticsCardsData;
+export default TaskDetails;

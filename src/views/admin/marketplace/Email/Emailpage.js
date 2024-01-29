@@ -26,17 +26,20 @@ import { useNavigate } from "react-router-dom";
 
 import {EmailTable} from "./Email";
 
+import {Emailstats} from "./Emailstats";
+
 
 export default function Emailpage() {
 
     const navigate = useNavigate();
 
     const handleEmail = () => {
-        navigate("/CreateEmail");
+        navigate("/admin/CreateEmail");
     };
 
     return (
         <div className="h-full w-full mx-4 mt-10">
+            <Emailstats />
                 <div className="mb-8 flex items-center justify-between gap-8">
                     <div>
                         <Typography variant="h5" color="blue-gray">

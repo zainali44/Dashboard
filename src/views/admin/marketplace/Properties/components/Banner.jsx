@@ -80,19 +80,10 @@ const Banner = () => {
         style={{ backgroundImage: `url(${PropertiesDetails.coverImage})` }}
       >
       </div>
-
-      {/* Name and position */}
-      <div className="mt-5 flex flex-col items-center">
-        <h4 className="text-xl font-bold text-navy-700 dark:text-white">
-          {PropertiesDetails.PropertyName}
-        </h4>
-        <p className="text-base font-normal text-gray-600 mt-2">
-          <HiLocationMarker className="inline-block mr-2" />
-           {PropertiesDetails.PropertyLocation}
-          </p>
-      </div>
-
-      <Button variant="text" className="flex items-center gap-2 mt-4 font-medium text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+      <Button 
+      size="sm"
+      color="green"
+      variant="outlined" className="flex items-center gap-2 mt-10 font-medium text-green-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
       onClick={handleOpen}
       >
         Share this Property{" "}

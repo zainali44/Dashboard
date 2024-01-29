@@ -1,7 +1,8 @@
 import { CurrencyDollarIcon, ShareIcon } from "@heroicons/react/24/solid";
-import { Button, Card, Typography, Checkbox } from "@material-tailwind/react";
+import { Button, Card, Typography, Checkbox, alert } from "@material-tailwind/react";
 import React from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Assets from "./Assets";
 import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
@@ -15,10 +16,14 @@ import {
     getDownloadURL,
 } from "firebase/storage";
 import { useParams } from "react-router-dom";
+import { set } from "date-fns";
+import { Alert } from "@mui/material";
 
 export default function LeaseManagement() {
 
     const TeantID = useParams().id;
+
+    const [loading, setLoading] = React.useState(false);
 
     const db = getFirestore(app);
 
@@ -45,8 +50,9 @@ export default function LeaseManagement() {
     }
 
     const saveAuctionDetails = async () => {
+        setLoading(true);
         const db = getFirestore(app);
-        const docRef = doc(db , "tenants", TeantID);
+        const docRef = doc(db, "tenants", TeantID);
         await setDoc(docRef, {
             Details: {
                 start_date: start_date,
@@ -56,10 +62,17 @@ export default function LeaseManagement() {
                 isLeaseActive: isLeaseActive,
             },
         }, { merge: true });
-    
-       
+        setLoading(false);
+        toast.success('Lease Details Saved Successfully', {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+        });
+
     }
-    
+
     React.useEffect(() => {
         fetchLeaseDetails();
     }
@@ -139,7 +152,7 @@ export default function LeaseManagement() {
                             id="lease_type"
                             value={lease_type}
                             onChange={(e) => setLeaseType(e.target.value)}
-                            >
+                        >
                             <option value="1">Residential</option>
                             <option value="2">Commercial</option>
                             <option value="3">Industrial</option>
@@ -184,18 +197,37 @@ export default function LeaseManagement() {
             </div>
 
             <div className="flex flex-row w-full mt-8">
-                <Button
-                    color="indigo"
-                    variant="outlined"
-                    className=" ml-auto"
-                    onClick={saveAuctionDetails}
-                >
-                    <div className="flex flex-row items-center">
-                        <CheckBadgeIcon className="h-5 w-5 mr-2" />
-                        Save Lease Details
-                    </div>
-                </Button>
+
+                {
+                    loading ? (
+                        <Button
+                            color="indigo"
+                            variant="filled"
+                            className=" ml-auto"
+                            disabled
+                        >
+                            <div className="flex flex-row items-center">
+                                <CheckBadgeIcon className="h-5 w-5 mr-2" />
+                                Saving...
+                            </div>
+                        </Button>
+                    ) : (
+                        <Button
+                            color="indigo"
+                            variant="filled"
+                            className=" ml-auto"
+                            onClick={saveAuctionDetails}
+                        >
+                            <div className="flex flex-row items-center">
+                                <CheckBadgeIcon className="h-5 w-5 mr-2" />
+                                Save Lease Details
+                            </div>
+                        </Button>
+                    )
+                }
             </div>
+            <ToastContainer />
+
         </div>
     );
 }

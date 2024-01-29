@@ -167,6 +167,7 @@ export default function Properties() {
     document.getElementById("propertySizeUnit").value = propertyDetails.PropertySizeUnit;
     document.getElementById("streetAddress").value = propertyDetails.StreetAddress;
     document.getElementById("city").value = propertyDetails.City;
+    document.getElementById("Map").value = propertyDetails.Map;
     document.getElementById("state").value = propertyDetails.State;
     document.getElementById("zip").value = propertyDetails.Zip;
     document.getElementById("country").value = propertyDetails.Country;
@@ -200,6 +201,7 @@ export default function Properties() {
             AskingPrice: document.getElementById("askingPrice").value,
             PropertySize: document.getElementById("propertySize").value,
             StreetAddress: document.getElementById("streetAddress").value,
+            Map: document.getElementById("Map").value,
             City: document.getElementById("city").value,
             State: document.getElementById("state").value,
             Zip: document.getElementById("zip").value,
@@ -235,6 +237,7 @@ export default function Properties() {
           StreetAddress: document.getElementById("streetAddress").value,
           City: document.getElementById("city").value,
           State: document.getElementById("state").value,
+          Map: document.getElementById("Map").value,
           Zip: document.getElementById("zip").value,
           Country: document.getElementById("country").value,
           Bedrooms: document.getElementById("bedrooms").value,
@@ -250,6 +253,8 @@ export default function Properties() {
           "coverImage": url,
           "Details": true,
           "Category": document.getElementById("category").value,
+          "PropertyName": document.getElementById("propertyName").value,
+          "PropertyLocation": document.getElementById("streetAddress").value + ", " + document.getElementById("city").value + ", " + document.getElementById("state").value + ", " + document.getElementById("zip").value + ", " + document.getElementById("country").value,
         }, { merge: true });
         alert("Property details added successfully!");
 

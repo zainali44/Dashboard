@@ -1,16 +1,18 @@
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import {
   BanknotesIcon,
   UserPlusIcon,
   UsersIcon,
   ChartBarIcon,
 } from "@heroicons/react/24/solid";
+import { CallToAction, Email, EmailOutlined, PendingActions, Task, TaskAltOutlined, TaskSharp } from "@mui/icons-material";
 
-export const statisticsCardsData = [
+export const TaskDetails = [
   {
-    color: "gray",
-    icon: BanknotesIcon,
-    title: "Total Investment",
-    value: "$53k",
+    color: "green",
+    icon: Email,
+    title: "Total Emails Sent",
+    value: "18,000",
     footer: {
       color: "text-green-500",
       value: "+55%",
@@ -19,9 +21,9 @@ export const statisticsCardsData = [
   },
   {
     color: "gray",
-    icon: UsersIcon,
-    title: "Total Investors",
-    value: "2,300",
+    icon: EmailOutlined,
+    title: "Total Emails Opened",
+    value: "2,300,000",
     footer: {
       color: "text-green-500",
       value: "+3%",
@@ -30,8 +32,8 @@ export const statisticsCardsData = [
   },
   {
     color: "gray",
-    icon: UserPlusIcon,
-    title: "New Clients",
+    icon: ExclamationTriangleIcon,
+    title: "Total Emails Clicked",
     value: "3,462",
     footer: {
       color: "text-red-500",
@@ -41,9 +43,9 @@ export const statisticsCardsData = [
   },
   {
     color: "gray",
-    icon: ChartBarIcon,
-    title: "Total Revenue",
-    value: "$103,430",
+    icon: PendingActions,
+    title: "Total Emails Bounced",
+    value: "103",
     footer: {
       color: "text-green-500",
       value: "+5%",
@@ -52,4 +54,4 @@ export const statisticsCardsData = [
   },
 ];
 
-export default statisticsCardsData;
+export default TaskDetails;

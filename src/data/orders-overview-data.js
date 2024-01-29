@@ -11,19 +11,19 @@ export const ordersOverviewData = [
   {
     icon: BellIcon,
     color: "text-blue-gray-300",
-    title: "$2400, Design changes",
+    title: "$2400, Design updates for Commercial plan",
     description: "22 DEC 7:20 PM",
   },
   {
     icon: PlusCircleIcon,
     color: "text-blue-gray-300",
-    title: "New order #1832412",
+    title: "New Lease #1832412",
     description: "21 DEC 11 PM",
   },
   {
     icon: ShoppingCartIcon,
     color: "text-blue-gray-300",
-    title: "Server payments for April",
+    title: "Rental payments for April",
     description: "21 DEC 9:34 PM",
   },
   {
@@ -35,13 +35,13 @@ export const ordersOverviewData = [
   {
     icon: LockOpenIcon,
     color: "text-blue-gray-300",
-    title: "Unlock packages for development",
+    title: "Unlock packages for Services",
     description: "18 DEC 4:54 AM",
   },
   {
     icon: BanknotesIcon,
     color: "text-blue-gray-300",
-    title: "New order #9583120",
+    title: "New Retanal #9583120",
     description: "17 DEC",
   },
 ];

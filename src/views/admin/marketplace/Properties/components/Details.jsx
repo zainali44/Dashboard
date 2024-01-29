@@ -43,6 +43,7 @@ const Details = () => {
     PropertySizeUnit: "",
     StreetAddress: "",
     City: "",
+    Map: "",
     State: "",
     Zip: "",
     Country: "",
@@ -113,6 +114,7 @@ const Details = () => {
           City: data.City,
           State: data.State,
           Zip: data.Zip,
+          Map: data.Map,
           Country: data.Country,
           Bedrooms: data.Bedrooms,
           Bathrooms: data.Bathrooms,
@@ -163,7 +165,11 @@ const Details = () => {
 
         <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
           <p className="text-sm text-gray-600">Property Location</p>
-          <p className="text-base font-medium text-navy-700 dark:text-white">
+          <p className="font-bold text-indigo-700 dark:text-white cursor-pointer"
+          onClick={() => window.open(`${propertyDetails.Map}`, "_blank")}
+          >{
+            console.log("Map URL: ", propertyDetails)
+          }
             {propertyDetails.StreetAddress}, {propertyDetails.City}, {propertyDetails.State}, {propertyDetails.Zip}, {propertyDetails.Country}
           </p>
         </div>
@@ -204,13 +210,6 @@ const Details = () => {
         </div>
 
         <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-            <p className="text-sm text-gray-600">Bathrooms</p>
-            <p className="text-base font-medium text-navy-700 dark:text-white">
-                {propertyDetails.Bathrooms}
-            </p>
-        </div>
-
-        <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
             <p className="text-sm text-gray-600">Dimensions</p>
             <p className="text-base font-medium text-navy-700 dark:text-white">
                 {propertyDetails.Dimensions}
@@ -231,19 +230,7 @@ const Details = () => {
             </p>
         </div>
 
-        <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-            <p className="text-sm text-gray-600">Auction Date</p>
-            <p className="text-base font-medium text-navy-700 dark:text-white">
-                {propertyDetails.AuctionDate}
-            </p>
-        </div>
-
-        <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none mb-4">
-            <p className="text-sm text-gray-600">Auction Time</p>
-            <p className="text-base font-medium text-navy-700 dark:text-white">
-                {propertyDetails.AuctionTime}
-            </p>
-        </div>
+    
         
       </div>
     </Card>

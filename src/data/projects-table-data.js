@@ -1,7 +1,7 @@
 export const projectsTableData = [
   {
-    img: "/img/logo-xd.svg",
-    name: "Material XD Version",
+    img: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Aven Prime Properties",
     members: [
       { img: "/img/team-1.jpeg", name: "Romina Hadid" },
       { img: "/img/team-2.jpeg", name: "Ryan Tompson" },
@@ -12,8 +12,8 @@ export const projectsTableData = [
     completion: 60,
   },
   {
-    img: "/img/logo-atlassian.svg",
-    name: "Add Progress Track",
+    img: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Aven Prime Properties",
     members: [
       { img: "/img/team-2.jpeg", name: "Ryan Tompson" },
       { img: "/img/team-4.jpeg", name: "Alexander Smith" },
@@ -22,8 +22,8 @@ export const projectsTableData = [
     completion: 10,
   },
   {
-    img: "/img/logo-slack.svg",
-    name: "Fix Platform Errors",
+    img: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Aven Prime Properties",
     members: [
       { img: "/img/team-3.jpeg", name: "Jessica Doe" },
       { img: "/img/team-1.jpeg", name: "Romina Hadid" },
@@ -32,8 +32,8 @@ export const projectsTableData = [
     completion: 100,
   },
   {
-    img: "/img/logo-spotify.svg",
-    name: "Launch our Mobile App",
+    img: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Aven Prime Properties",
     members: [
       { img: "/img/team-4.jpeg", name: "Alexander Smith" },
       { img: "/img/team-3.jpeg", name: "Jessica Doe" },
@@ -44,15 +44,15 @@ export const projectsTableData = [
     completion: 100,
   },
   {
-    img: "/img/logo-jira.svg",
-    name: "Add the New Pricing Page",
+    img: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Aven Prime Properties",
     members: [{ img: "/img/team-4.jpeg", name: "Alexander Smith" }],
     budget: "$500",
     completion: 25,
   },
   {
-    img: "/img/logo-invision.svg",
-    name: "Redesign New Online Shop",
+    img: "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Aven Prime Properties",
     members: [
       { img: "/img/team-1.jpeg", name: "Romina Hadid" },
       { img: "/img/team-4.jpeg", name: "Alexander Smith" },

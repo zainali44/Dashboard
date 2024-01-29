@@ -113,7 +113,7 @@ const PropertiesRoutes = [
   {
     name: "Create Email",
     layout: "/admin",
-    path: "email",
+    path: "CreateEmail",
     icon: <MdOutlineShoppingCart className="h-5 w-5" />,
     component: <EmailComponent />,
   },

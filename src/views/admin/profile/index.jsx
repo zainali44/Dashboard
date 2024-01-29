@@ -4,6 +4,7 @@ import Notification from "./components/Notification";
 import Project from "./components/Project";
 import Storage from "./components/Storage";
 import Upload from "./components/Upload";
+import DailyTraffic from "./components/Conversation";
 
 const ProfileOverview = () => {
   return (
@@ -18,7 +19,7 @@ const ProfileOverview = () => {
         </div>
 
         <div className="z-0 col-span-5 lg:!mb-0">
-          <Upload />
+          <DailyTraffic />
         </div>
       </div>
       {/* all project & ... */}

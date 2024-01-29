@@ -1,4 +1,4 @@
-import { chartsConfig } from "/configs";
+import chartsConfig from "configs/charts-config";
 
 const websiteViewsChart = {
   type: "bar",
@@ -11,7 +11,7 @@ const websiteViewsChart = {
   ],
   options: {
     ...chartsConfig,
-    colors: "#388e3c",
+    colors: ["#00D617"],
     plotOptions: {
       bar: {
         columnWidth: "16%",
@@ -36,7 +36,7 @@ const dailySalesChart = {
   ],
   options: {
     ...chartsConfig,
-    colors: ["#0288d1"],
+    colors: ["#00D617"],
     stroke: {
       lineCap: "round",
     },
@@ -71,7 +71,7 @@ const completedTaskChart = {
   ],
   options: {
     ...chartsConfig,
-    colors: ["#388e3c"],
+    colors: ["#00D617"],
     stroke: {
       lineCap: "round",
     },
@@ -107,7 +107,7 @@ const completedTasksChart = {
 export const statisticsChartsData = [
   {
     color: "white",
-    title: "Website View",
+    title: "Deal Campaign View",
     description: "Last Campaign Performance",
     footer: "campaign sent 2 days ago",
     chart: websiteViewsChart,

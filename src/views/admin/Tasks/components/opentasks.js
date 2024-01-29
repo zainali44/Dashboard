@@ -28,6 +28,8 @@ import { BsArrow90DegUp, BsArrowBarDown } from "react-icons/bs";
 
 import { useNavigate } from "react-router-dom";
 
+import AllTasks from "./AllTasks";
+
 const TABLE_HEAD = ["Title", "Type", "Related Contact", "Assigned To", "Due Date", "Priority", "Status"];
 
 export function Opentask() {
@@ -48,17 +50,29 @@ export function Opentask() {
     getTasks();
   }, []);
 
-
+ 
   const [open, setOpen] = React.useState(false);
+
+  const [open2, setOpen2] = React.useState(false);
+
+  const [selectedTask, setSelectedTask] = useState(null); // Store the selected task for viewing details
 
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
 
   const handleOpen = () => setOpen(!open);
+  const handleOpen2 = () => setOpen2(!open2);
 
   const db = getFirestore(app);
   const storage = getStorage(app);
+
+  const handleViewDetails = (task) => {
+    console.log("Selected Task: ", task);
+
+    setSelectedTask(task);
+    handleOpen2();
+  };
 
   const addTask = async () => {
     setLoading(true);
@@ -100,11 +114,13 @@ export function Opentask() {
       setAlertOpen(true);
       console.error("Error adding document: ", error);
     }
+    
   };
 
 
   return (
     <>
+      <AllTasks />
       <Card className="h-full w-full dark:bg-gray-800 dark:text-white overflow-x-auto dark:border-gray-700 dark:border-opacity-60">
         <CardHeader floated={false} shadow={false} className="rounded-none dark:bg-gray-800 dark:text-white">
           <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
@@ -210,11 +226,11 @@ export function Opentask() {
                   </Typography>
                 </td>
                 <td className="p-4 border-b border-blue-gray-50">
-                  <Typography as="a"
-                    onClick={() => navigate(`/admin/task-details/${task.id}`)}
+                  <button as="a"
+                    onClick={() => handleViewDetails(task)} // Call handleViewDetails with the selected task
                     variant="small" color="indigo" className="font-medium cursor-pointer">
                     View details
-                  </Typography>
+                  </button>
                 </td>
 
               </tr>
@@ -356,6 +372,142 @@ export function Opentask() {
         </DialogFooter>
       </Dialog>
 
+      <Dialog open={open2} size="s" handler={handleOpen2}>
+        <div className="flex items-center justify-between">
+          <DialogHeader className="flex flex-col items-start">
+            {" "}
+            <Typography className="mb-1" variant="h6">
+              Task Details
+            </Typography>
+          </DialogHeader>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="mr-3 h-5 w-5"
+            onClick={handleOpen2}
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+        <DialogBody>
+          <Typography className="mb-10 -mt-7 " color="gray" variant="body2">
+            Here you can view the details of the task.
+          </Typography>
+          {selectedTask && (
+            <>
+              <div className="grid grid-cols-3 gap-6">
+                <div className="flex flex-col">
+                  <label htmlFor="name" className="text-sm text-gray-600">
+                    Task name
+                  </label>
+                  <input id="name" label="Task name" value={selectedTask.name} readOnly disabled className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="duedate" className="text-sm text-gray-600">
+                    Due date
+                  </label>
+                  <Input id="duedate" label="Due date" type="date" value={selectedTask.dueDate} readOnly disabled className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="duetime" className="text-sm text-gray-600">
+                    Due time
+                  </label>
+                  <Input id="duetime" label="Due time" type="time" value={selectedTask.dueTime} readOnly disabled className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" />
+                </div>
+              </div>
+              <div className="mt-4 flex flex-col">
+                <label htmlFor="description" className="text-sm text-gray-600">
+                  Description
+                </label>
+                <Textarea id="description" label="Description" value={selectedTask.description} readOnly  disabled/>
+              </div>
+              <div className="grid grid-cols-3 gap-6 mt-4">
+                <div className="flex flex-col">
+                  <label htmlFor="Type" className="text-sm text-gray-600">
+                    Type
+                  </label>
+                  <select id="Type" label="Type" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" value={selectedTask.type} readOnly disabled >
+                    <option value="Call">Call</option>
+                    <option value="Email">Email</option>
+                    <option value="Meeting">Meeting</option>
+                  </select>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="Priority" className="text-sm text-gray-600">
+                    Priority
+                  </label>
+                  <select id="Priority" label="Priority" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" value={selectedTask.priority} disabled >
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                  </select>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="Status" className="text-sm text-gray-600">
+                    Status
+                  </label>
+                  <select id="Status" label="Status" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" value={selectedTask.status} disabled >
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6 mt-4">
+                <div className="flex flex-col">
+                  <label htmlFor="RelatedContact" className="text-sm text-gray-600">
+                    Related Contact
+                  </label>
+                  <select id="RelatedContact" label="Related Contact" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" value={selectedTask.relatedContact} disabled >
+                    <option value="John Doe">John Doe</option>
+                    <option value="Alexa Liras">Alexa Liras</option>
+                    <option value="Michael Levi">Michael Levi</option>
+                  </select>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="AssignedTo" className="text-sm text-gray-600">
+                    Assigned To
+                  </label>
+                  <select id="AssignedTo" label="Assigned To" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" value={selectedTask.assignedTo} disabled >
+                    <option value="John Doe">John Doe</option>
+                    <option value="Alexa Liras">Alexa Liras</option>
+                    <option value="Michael Levi">Michael Levi</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-col">
+                <label htmlFor="relateddeal" className="text-sm text-gray-600">
+                  Related Deal
+                </label>
+                <select id="relateddeal" label="Related Deal" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" value={selectedTask.relatedDeal} disabled >
+                  <option value="Deal 1">Deal 1</option>
+                  <option value="Deal 2">Deal 2</option>
+                  <option value="Deal 3">Deal 3</option>
+                </select>
+              </div>
+
+              <div className="mt-4 flex flex-col">
+                <Textarea id="note" label="Note" value={selectedTask.note} readOnly disabled />
+              </div>
+            </>
+          )}
+        </DialogBody>
+        <DialogFooter className="space-x-2">
+          <Button variant="text" color="gray" onClick={handleOpen2}>
+            cancel
+          </Button>
+          <Button variant="outlined" color="indigo" onClick={handleOpen2}>
+            Edit Task
+          </Button>
+        </DialogFooter>
+      </Dialog>
     </>
   );
 }
